@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(135deg, #ffe6ef, #fff5f8);
+
+    overflow: hidden;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+/* =========================
+   MÀN HÌNH HỘP QUÀ
+========================= */
+
+.gift-screen {
+    transition: 0.6s;
+}
+
+.gift-screen h1 {
+    color: #d6336c;
+    margin-bottom: 15px;
+}
+
+.hint {
+    color: #777;
+    margin-bottom: 40px;
+}
+
+/* =========================
+   HỘP QUÀ
+========================= */
+
+.gift {
+    position: relative;
+
+    width: 180px;
+    height: 150px;
+
+    margin: auto;
+
+    cursor: pointer;
+
+    animation: shake 2s infinite;
+}
+
+.gift-box {
+    position: absolute;
+
+    bottom: 0;
+    left: 10px;
+
+    width: 160px;
+    height: 110px;
+
+    background: #ff4f81;
+
+    border-radius: 5px;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gift-lid {
+    position: absolute;
+
+    top: 20px;
+    left: 0;
+
+    width: 180px;
+    height: 35px;
+
+    background: #ff3366;
+
+    border-radius: 5px;
+
+    z-index: 2;
+}
+
+.gift-ribbon {
+    position: absolute;
+
+    left: 75px;
+    top: 20px;
+
+    width: 30px;
+    height: 130px;
+
+    background: #ffd43b;
+
+    z-index: 3;
+}
+
+/* =========================
+   HỘP QUÀ RUNG
+========================= */
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+
+    75% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* =========================
+   MÀN HÌNH LỜI CHÚC
+========================= */
+
+.message-screen {
+    display: none;
+
+    opacity: 0;
+
+    padding: 30px;
+
+    max-width: 700px;
+
+    animation: appear 1.5s forwards;
+}
+
+.message-screen h1 {
+    color: #d6336c;
+
+    margin: 20px 0;
+}
+
+.message {
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    color: #555;
+
+    margin: 15px 0;
+}
+
+/* =========================
+   HOA
+========================= */
+
+.flowers {
+    font-size: 50px;
+
+    margin-bottom: 20px;
+
+    animation: flowersAppear 1.5s ease;
+}
+
+.flower-big {
+    font-size: 100px;
+
+    margin: 20px;
+
+    animation: flowerFloat 2s infinite;
+}
+
+/* =========================
+   NÚT
+========================= */
+
+button {
+    border: none;
+
+    padding: 12px 25px;
+
+    border-radius: 25px;
+
+    background: #ff4f81;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d6336c;
+
+    transform: scale(1.05);
+}
+
+/* =========================
+   HIỆU ỨNG XUẤT HIỆN
+========================= */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flowersAppear {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes flowerFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   🌸 HOA RƠI
+========================= */
+
+.falling-flower {
+    position: fixed;
+
+    top: -50px;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+    .gift-screen h1 {
+        font-size: 24px;
+    }
+
+    .message-screen {
+        padding: 20px;
+    }
+
+    .message-screen h1 {
+        font-size: 25px;
+    }
+
+    .message {
+        font-size: 17px;
+    }
+}
